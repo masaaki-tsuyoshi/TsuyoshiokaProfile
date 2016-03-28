@@ -1,25 +1,59 @@
 package com.example.tsuyoshiokaprofile;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 
 public class Main extends AppCompatActivity {
+
+
+    //配列の作成
+    private static final String[] profiles = {
+            "吉岡 毅 ", "山越さん", "長濱 円", "木滑さん", "黄田さん",
+            "かすやさん", "原口さん", "宮原 啓輔", "近藤 房之助", "松苗 大貴",
+            "福本 正明","松本さん", "梶谷さん", "渡邊さん", "仲鉢さん", "村山さん",
+            "石井さん"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        //content.xmlからidを取得
+        ListView listView = (ListView)findViewById(R.id.listView1);
+
+        //配列を保持するアダプターのインスタンスと引数を設定
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, profiles);
+
+        //アダプターをリストビューのインスタンスに設定
+        listView.setAdapter(arrayAdapter);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                Intent sub = new Intent();
+                sub.setClassName("com.example.tsuyoshiokaprofile", "com.example.tsuyoshiokaprofile.SubActivity");
+                startActivity(sub);
 
 
 
+
+
+
+
+            }
+        });
 
 
 

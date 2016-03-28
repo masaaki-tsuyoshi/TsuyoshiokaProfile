@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">TsuyoshiokaProfile</string>
+    <string name="app_name">ツヨシオカ</string>
     <string name="action_settings">Settings</string>
+
+    <string name="profil_name">田中義宏</string>
+    <string name="job">アプリ開発事業部</string>
+    <string name="description">アプリ開発事業部で働いている田中義宏です。最近の趣味はアイスホッケー。好きな食べ物はドリアとピザです。</string>
+
+
 </resources>
