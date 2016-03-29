@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class Main extends AppCompatActivity {
@@ -16,10 +17,11 @@ public class Main extends AppCompatActivity {
 
     //配列の作成
     private static final String[] profiles = {
-            "吉岡 毅 ", "山越さん", "長濱 円", "木滑さん", "黄田さん",
-            "かすやさん", "原口さん", "宮原 啓輔", "近藤 房之助", "松苗 大貴",
-            "福本 正明","松本さん", "梶谷さん", "渡邊さん", "仲鉢さん", "村山さん",
+            "浜田ブリトニー ", "武田徳弘", "横井軍平", "小島さん", "西田さん",
+            "ケヴィンマッケンロー", "原口さん", "得意さん", "室町さん", "久住さん",
+            "安藤みき","松本さん", "飯田霞", "渡邊さん", "佐藤さん", "村山さん",
             "石井さん"};
+
 
 
     @Override
@@ -27,8 +29,15 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //変遷後のアクティヴィティからidを取得
+        //final TextView text = (TextView) findViewById(R.id.textView);
+        final TextView text2 = (TextView) findViewById(R.id.textView2);
+        final TextView text3 = (TextView) findViewById(R.id.textView3);
+       // ImageView image = findViewById(R.id.imageView)
+
+
         //content.xmlからidを取得
-        ListView listView = (ListView)findViewById(R.id.listView1);
+        final ListView listView = (ListView)findViewById(R.id.listView1);
 
         //配列を保持するアダプターのインスタンスと引数を設定
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, profiles);
@@ -44,12 +53,10 @@ public class Main extends AppCompatActivity {
 
                 Intent sub = new Intent();
                 sub.setClassName("com.example.tsuyoshiokaprofile", "com.example.tsuyoshiokaprofile.SubActivity");
+
+                //次のインテントに渡す　　　　　リストビューのタップされた部分を取得
+                sub.putExtra("list_names", listView.getItemAtPosition(position).toString());
                 startActivity(sub);
-
-
-
-
-
 
 
             }

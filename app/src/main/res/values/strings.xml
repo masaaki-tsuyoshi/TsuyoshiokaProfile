@@ -6,5 +6,9 @@
     <string name="job">アプリ開発事業部</string>
     <string name="description">アプリ開発事業部で働いている田中義宏です。最近の趣味はアイスホッケー。好きな食べ物はドリアとピザです。</string>
 
+    <string name="profil_name_yoshioka">吉岡毅</string>
+    <string name="job_yoshioka">代表取締役社長</string>
+    <string name="description_yoshioka">３人の娘と嫁に囲まれて暮らしています。。</string>
+
 
 </resources>
