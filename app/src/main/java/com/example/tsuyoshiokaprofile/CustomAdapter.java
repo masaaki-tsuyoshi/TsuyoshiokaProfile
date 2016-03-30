@@ -31,7 +31,7 @@ public class CustomAdapter extends ArrayAdapter<MemberProfile> {
         //
         text.setText(memberProfile.getName());
         text2.setText(memberProfile.getJob());
-        image.setImageBitmap(memberProfile.getBitmap());
+        image.setImageResource(memberProfile.getImage());
 
 
         return view;

@@ -7,14 +7,14 @@ public class MemberProfile {
     // 宣言
     private String name;
     private String job;
-    private Bitmap bitmap;
+    private int image;
 
     //コンストラクタの生成
-   public MemberProfile(String name, String job, Bitmap image){
+   public MemberProfile(String name, String job, int image){
         super();
         this.name = name;
         this.job = job;
-        this.bitmap = image;
+        this.image = image;
     }
 
     //ゲッターの設定
@@ -26,8 +26,8 @@ public class MemberProfile {
         return this.job;
     }
 
-    public Bitmap getBitmap() {
-        return bitmap;
+    public int getImage() {
+        return image;
     }
 
 
