@@ -1,27 +1,23 @@
 package com.example.tsuyoshiokaprofile;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 public class Main extends AppCompatActivity {
 
 
-    //配列の作成
-    private static final String[] profiles = {
-            "浜田ブリトニー ", "武田徳弘", "横井軍平", "小島さん", "西田さん",
-            "ケヴィンマッケンロー", "原口さん", "得意さん", "室町さん", "久住さん",
-            "安藤みき","松本さん", "飯田霞", "渡邊さん", "佐藤さん", "村山さん",
-            "石井さん"};
-
+    private ListView listView;
+    ArrayList<MemberProfile> memberProfilesList;
 
 
     @Override
@@ -29,35 +25,46 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //変遷後のアクティヴィティからidを取得
-        //final TextView text = (TextView) findViewById(R.id.textView);
-        final TextView text2 = (TextView) findViewById(R.id.textView2);
-        final TextView text3 = (TextView) findViewById(R.id.textView3);
-       // ImageView image = findViewById(R.id.imageView)
+        listView = (ListView)findViewById(R.id.listView1);
 
+        //アレイリストのインスタンスを作成　
+        memberProfilesList = new ArrayList<>();
+        memberProfilesList.add(new MemberProfile("吉田拓郎","農家",BitmapFactory.decodeResource(getResources(), R.drawable.human)));
+        memberProfilesList.add(new MemberProfile("藤井ふみか","社長",BitmapFactory.decodeResource(getResources(), R.drawable.human1)));
+        memberProfilesList.add(new MemberProfile("ケイティ・スチュワート","広報",BitmapFactory.decodeResource(getResources(), R.drawable.human2)));
+        memberProfilesList.add(new MemberProfile("木田武蔵","アプリ開発事業部",BitmapFactory.decodeResource(getResources(), R.drawable.human3)));
+        memberProfilesList.add(new MemberProfile("歩兵巡査","特殊部隊所属",BitmapFactory.decodeResource(getResources(), R.drawable.human4)));
+        memberProfilesList.add(new MemberProfile("サラリーマン金太郎","課長",BitmapFactory.decodeResource(getResources(), R.drawable.human5)));
+        memberProfilesList.add(new MemberProfile("メガネ男子","メガネ部員",BitmapFactory.decodeResource(getResources(), R.drawable.human6)));
+        memberProfilesList.add(new MemberProfile("おかえくみこ","パンケーキサークル部長",BitmapFactory.decodeResource(getResources(), R.drawable.human7)));
+        memberProfilesList.add(new MemberProfile("ふわふわ女子","ふわふわしてる",BitmapFactory.decodeResource(getResources(), R.drawable.human8)));
+        memberProfilesList.add(new MemberProfile("吉田拓郎","アプリ開発事業部",BitmapFactory.decodeResource(getResources(), R.drawable.human)));
+        memberProfilesList.add(new MemberProfile("吉田拓郎","アプリ開発事業部",BitmapFactory.decodeResource(getResources(), R.drawable.human)));
 
-        //content.xmlからidを取得
-        final ListView listView = (ListView)findViewById(R.id.listView1);
+        
 
         //配列を保持するアダプターのインスタンスと引数を設定
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, profiles);
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, profiles);
+
+        CustomAdapter customAdapter = new CustomAdapter(this, memberProfilesList);
+
 
         //アダプターをリストビューのインスタンスに設定
-        listView.setAdapter(arrayAdapter);
+        listView.setAdapter(customAdapter);
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
                 Intent sub = new Intent();
                 sub.setClassName("com.example.tsuyoshiokaprofile", "com.example.tsuyoshiokaprofile.SubActivity");
 
-                //次のインテントに渡す　　　　　リストビューのタップされた部分を取得
-                sub.putExtra("list_names", listView.getItemAtPosition(position).toString());
-                startActivity(sub);
 
+                MemberProfile memberProfile = (MemberProfile)listView.getItemAtPosition(position);
+                sub.putExtra("list_names", memberProfile.getName());
+                sub.putExtra("list_jobs",memberProfile.getJob());
+                sub.putExtra("list_images",memberProfile.getBitmap());
+                startActivity(sub);
 
             }
         });
