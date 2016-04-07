@@ -22,6 +22,7 @@ public class CustomAdapter extends ArrayAdapter<MemberProfile> {
     public View getView(int position, View convertView, ViewGroup parent) {
         //カスタムレイアウトをviewの中で保持
         View view = super.getView(position, convertView, parent);
+
         TextView text = (TextView)view.findViewById(R.id.text);
         TextView text2 = (TextView)view.findViewById(R.id.text2);
         ImageView image = (ImageView) view.findViewById(R.id.image);

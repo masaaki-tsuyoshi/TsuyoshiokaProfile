@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,19 +29,24 @@ public class Main extends AppCompatActivity {
 
         //アレイリストのインスタンスを作成　
         memberProfilesList = new ArrayList<>();
-        memberProfilesList.add(new MemberProfile("吉田拓郎","農家",R.drawable.human));
-        memberProfilesList.add(new MemberProfile("静岡じゅん","広報", R.drawable.human1));
-        memberProfilesList.add(new MemberProfile("ケイティ・スチュワート","広報", R.drawable.human2));
-        memberProfilesList.add(new MemberProfile("木田武蔵","アプリ開発事業部",R.drawable.human3));
-        memberProfilesList.add(new MemberProfile("歩兵巡査","特殊部隊所属",R.drawable.human4));
-        memberProfilesList.add(new MemberProfile("サラリーマン金太郎","課長",R.drawable.human5));
-        memberProfilesList.add(new MemberProfile("メガネ男子","メガネ部員",R.drawable.human6));
-        memberProfilesList.add(new MemberProfile("おかえくみこ","パンケーキサークル部長",R.drawable.human7));
-        memberProfilesList.add(new MemberProfile("ふわふわ女子","ふわふわしてる",R.drawable.human8));
-        memberProfilesList.add(new MemberProfile("吉田拓郎","アプリ開発事業部",R.drawable.human));
-        memberProfilesList.add(new MemberProfile("吉田拓郎","アプリ開発事業部",R.drawable.human));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name2),getString(R.string.job2),R.drawable.human1,getString(R.string.comment2)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name3),getString(R.string.job3),R.drawable.human2,getString(R.string.comment3)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name4),getString(R.string.job4),R.drawable.human3,getString(R.string.comment4)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name5),getString(R.string.job5),R.drawable.human4,getString(R.string.comment5)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name6),getString(R.string.job6),R.drawable.human5,getString(R.string.comment6)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name7),getString(R.string.job7),R.drawable.human6,getString(R.string.comment7)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name8),getString(R.string.job8),R.drawable.human7,getString(R.string.comment8)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name9),getString(R.string.job9),R.drawable.human8,getString(R.string.comment9)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
+        memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
 
-        
 
         //配列を保持するアダプターのインスタンスと引数を設定
         //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, profiles);
@@ -58,15 +64,11 @@ public class Main extends AppCompatActivity {
 
                 MemberProfile memberProfile = (MemberProfile)listView.getItemAtPosition(position);
 
-                //Bundle bundle = new Bundle();
-                //bundle.putString("list_names", memberProfile.getName());
-                //bundle.putString("list_jobs", memberProfile.getJob());
-               // bundle.putInt("list_images", memberProfile.getImage());
-
                 Intent sub = new Intent();
                 sub.putExtra("list_names", memberProfile.getName());
                 sub.putExtra("list_jobs",memberProfile.getJob());
                 sub.putExtra("list_images",memberProfile.getImage());
+                sub.putExtra("list_comments",memberProfile.getComment());
 
 
                 sub.setClassName("com.example.tsuyoshiokaprofile", "com.example.tsuyoshiokaprofile.SubActivity");
@@ -83,6 +85,7 @@ public class Main extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return true;
     }
 
@@ -95,7 +98,18 @@ public class Main extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(), "This is Settings", Toast.LENGTH_SHORT).show();
             return true;
+        }
+        else if (id == R.id.action_settings2) {
+            Toast.makeText(getApplicationContext(), "Contact Us", Toast.LENGTH_SHORT).show();
+            return true;
+
+        }
+        else if (id == R.id.action_settings3) {
+            Toast.makeText(getApplicationContext(), "Company", Toast.LENGTH_SHORT).show();
+            return true;
+
         }
 
         return super.onOptionsItemSelected(item);

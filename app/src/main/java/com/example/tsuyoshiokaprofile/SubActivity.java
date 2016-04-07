@@ -22,19 +22,21 @@ public class SubActivity extends AppCompatActivity{
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
         Intent sub = getIntent();
-        //Bundle bundle = Bundle();
 
         String name = sub.getStringExtra("list_names");
         String job = sub.getStringExtra("list_jobs");
-        int image = sub.getIntExtra("list_images",R.drawable.human);
+        int image = sub.getIntExtra("list_images", R.drawable.human);
+        String comment = sub.getStringExtra("list_comments");
 
-        //String name = bundle.getString("list_names");
-        //String job = bundle.getString("list_jobs");
-        //int image = bundle.getInt("list_images");
 
+        assert text != null;
         text.setText(name);
+        assert text2 != null;
         text2.setText(job);
+        assert imageView != null;
         imageView.setImageResource(image);
+        assert text3 != null;
+        text3.setText(comment);
 
 
 
