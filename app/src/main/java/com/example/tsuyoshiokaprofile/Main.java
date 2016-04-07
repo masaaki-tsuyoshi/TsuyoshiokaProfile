@@ -99,7 +99,9 @@ public class Main extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast.makeText(getApplicationContext(), "This is Settings", Toast.LENGTH_SHORT).show();
+            Intent setting_intent = new Intent();
+            setting_intent.setClassName("com.example.tsuyoshiokaprofile", "com.example.tsuyoshiokaprofile.SettingsActivity");
+            startActivity(setting_intent);
             return true;
         }
         else if (id == R.id.action_settings2) {
