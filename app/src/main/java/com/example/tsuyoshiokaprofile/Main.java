@@ -48,6 +48,7 @@ public class Main extends AppCompatActivity {
         memberProfilesList.add(new MemberProfile(getString(R.string.name1),getString(R.string.job1),R.drawable.human,getString(R.string.comment1)));
 
 
+
         //配列を保持するアダプターのインスタンスと引数を設定
         //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, profiles);
 
