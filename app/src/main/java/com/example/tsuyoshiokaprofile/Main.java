@@ -25,6 +25,8 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         listView = (ListView)findViewById(R.id.listView1);
 
         //アレイリストのインスタンスを作成　
@@ -105,7 +107,9 @@ public class Main extends AppCompatActivity {
             return true;
         }
         else if (id == R.id.action_settings2) {
-            Toast.makeText(getApplicationContext(), "Contact Us", Toast.LENGTH_SHORT).show();
+            Intent psIntent = new Intent();
+            psIntent.setClassName("com.example.tsuyoshiokaprofile", "com.example.tsuyoshiokaprofile.ProfileSettingActivity");
+            startActivity(psIntent);
             return true;
 
         }

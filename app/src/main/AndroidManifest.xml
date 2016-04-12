@@ -5,6 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
+        android:logo="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -21,6 +22,15 @@
         <activity android:name =".SubActivity" />
 
         <activity android:name =".SettingsActivity" />
+        <activity android:name =".ProfileSettingActivity" />
+
+        <activity android:name =".NameJobEditActivity" />
+
+        <activity android:name =".ImageEditActivity" />
+
+        <activity android:name =".CommentEditActivity" />
+
+
 
 
     </application>

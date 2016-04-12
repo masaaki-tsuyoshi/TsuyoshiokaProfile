@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Company</string>
     <string name="action_settings">Settings</string>
-    <string name="action_settings2">Contact Us</string>
+    <string name="action_settings2">Profile Setting</string>
     <string name="action_settings3">About</string>
 
 
